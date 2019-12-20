@@ -1,1 +1,76 @@
-<p>client-create works!</p>
+<div class="row">
+    <div class="col-md-6">
+        <h1>New Client</h1>
+    </div>
+    <div class="col-md-6 text-right">
+        <a routerLink="/clients" class="btn btn-success btn-sm mt-2">
+            <i class="fa fa fa-arrow-circle-o-left"></i> Back to list
+        </a>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-8 mx-auto">
+        <form [formGroup]="clientForm" (ngSubmit)="saveClient()">
+            <div class="form-group">
+                <label for="firstName">firstName</label>
+                <input formControlName="firstName" id="firstName" type="text" class="form-control">
+                <div class="alert alert-warning" 
+                     *ngIf="clientForm.get('firstName').invalid && clientForm.get('firstName').touched"
+                >
+                    <div *ngIf="clientForm.get('firstName').errors.required">
+                        This field is Required !
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="lastName">lastName</label>
+                <input formControlName="lastName" id="lastName" type="text" class="form-control">
+                <div class="alert alert-warning" 
+                *ngIf="clientForm.get('lastName').invalid && clientForm.get('lastName').touched"
+           >
+               <div *ngIf="clientForm.get('lastName').errors.required">
+                   This field is Required !
+               </div>
+           </div>
+            </div>
+            <div class="form-group">
+                <label for="email">email</label>
+                <input formControlName="email" id="email" type="text" class="form-control">
+                <div class="alert alert-warning" 
+                *ngIf="clientForm.get('email').invalid && clientForm.get('email').touched"
+           >
+               <div *ngIf="clientForm.get('email').errors.required">
+                   This field is Required !
+               </div>
+           </div>
+            </div>
+            <div class="form-group">
+                <label for="phone">phone</label>
+                <input formControlName="phone" id="phone" type="text" class="form-control">
+                <div class="alert alert-warning" 
+                *ngIf="clientForm.get('phone').invalid && clientForm.get('phone').touched"
+           >
+               <div *ngIf="clientForm.get('phone').errors.required">
+                   This field is Required !
+               </div>
+           </div>
+            </div>
+            <div class="form-group">
+                <label for="balance">balance</label>
+                <input formControlName="balance" id="balance" type="text" class="form-control">
+                <div class="alert alert-warning" 
+                *ngIf="clientForm.get('balance').invalid && clientForm.get('balance').touched"
+           >
+               <div *ngIf="clientForm.get('balance').errors.required">
+                   This field is Required !
+               </div>
+           </div>
+            </div>
+
+            <button [disabled]="clientForm.invalid" type="submit" class="btn btn-block btn-primary">
+                <i class="fa fa-plus"></i> New client
+            </button>
+        </form>
+    </div>
+</div>

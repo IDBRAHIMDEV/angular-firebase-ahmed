@@ -1,1 +1,43 @@
-<p>client-list works!</p>
+
+<div class="row">
+    <div class="col-md-6">
+        <h1>List clients</h1>
+    </div>
+    <div class="col-md-6 text-right">
+        <a routerLink="/clients/create" class="btn btn-success btn-sm mt-2">
+            <i class="fa fa-user"></i> New client
+        </a>
+    </div>
+</div>
+<div class="row mt-3">
+    <div class="col-md-12">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Fullname</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Balance</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let client of clients">
+                    <td>{{ client.firstName | titlecase | resume }} {{ client.lastName | uppercase }}</td>
+                    <td>{{ client.email }}</td>
+                    <td>{{ client.phone }}</td>
+                    <td>{{ client.balance | currency:'JPY':'symbol':'1.3-3' }}</td>
+                    <td class="text-right" nowrap>
+                        <a [routerLink]="['/clients', client.id, 'edit']" class="btn btn-warning btn-sm mr-1">
+                            <i class="fa fa-pencil"></i>
+                        </a>
+
+                        <button class="btn btn-danger btn-sm">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

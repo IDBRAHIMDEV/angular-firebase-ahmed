@@ -1,1 +1,24 @@
-<p>navbar works!</p>
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+    <a class="navbar-brand" routerLink="/">Panel Client</a>
+    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="/clients">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="/clients/create">New</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item" routerLinkActive="active"><a routerLink="/register" class="nav-link">Register</a></li>
+            <li class="nav-item" routerLinkActive="active"><a routerLink="/login" class="nav-link">Login</a></li>
+            <li class="nav-item" routerLinkActive="active"><a routerLink="/login" class="nav-link">Login</a></li>
+            <li class="nav-item" routerLinkActive="active"><button (click)="signOut()" class="nav-link btn-logout">Logout</button></li>
+        </ul>
+     
+    </div>
+</nav>

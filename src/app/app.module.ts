@@ -1,3 +1,5 @@
+import { ReactiveFormsModule } from '@angular/forms';
+import { environment } from './../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -8,6 +10,10 @@ import { PartialsModule } from './partials/partials.module';
 import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,11 +22,16 @@ import { LoginComponent } from './auth/login/login.component';
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
     AppRoutingModule,
     ClientModule,
-    PartialsModule
+    PartialsModule,
+    ReactiveFormsModule,
+    AngularFireAuthModule
   ],
   providers: [],
+  exports: [AngularFireModule, AngularFirestoreModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
